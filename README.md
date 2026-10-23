@@ -1,4 +1,13 @@
-Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is recommended.
+# GitHub Repository
+
+The source code, trained model, unit tests, FastAPI application, and continuous integration workflow for this project 
+are available in the following GitHub repository:
+
+https://github.com/gwjz2gp5d2-dev/Deploying-a-Scalable-ML-Pipeline-with-FastAPI
+
+
+Working in a command line environment is recommended for ease of use with git and dvc. If on Windows, WSL1 or 2 is 
+recommended.
 
 # Environment Set up (pip or conda)
 * Option 1: use the supplied file `environment.yml` to create a new environment with conda
