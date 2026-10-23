@@ -1,9 +1,9 @@
 import pytest
 import numpy as np
-from scipy.constants import precision
 
 from sklearn.ensemble import RandomForestClassifier
-from ml.model import train_model, inference, compute_model_metrics,save_model, load_model
+from ml.model import train_model, inference, compute_model_metrics, save_model, load_model
+
 
 # Create reusable sample data for testing model training and inference.
 @pytest.fixture
@@ -17,6 +17,7 @@ def sample_data():
     y = np.array([0, 0, 1, 1])
 
     return X, y
+
 
 def test_train_model(sample_data):
     """
@@ -52,9 +53,10 @@ def test_compute_model_metrics():
 
     precision, recall, f1 = compute_model_metrics(y, predictions)
 
-    assert precision == pytest.approx(2/3)
+    assert precision == pytest.approx(2 / 3)
     assert recall == pytest.approx(1.0)
     assert f1 == pytest.approx(0.8)
+
 
 def test_save_load_model(sample_data, tmp_path):
     """

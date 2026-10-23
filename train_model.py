@@ -7,12 +7,10 @@ from ml.model import save_model, load_model, compute_model_metrics, performance_
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-
 project_path = os.path.dirname(os.path.abspath(__file__))
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path)
-
 
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(
@@ -34,13 +32,12 @@ cat_features = [
     "native-country",
 ]
 
-
 X_train, y_train, encoder, lb = process_data(
     train,
     categorical_features=cat_features,
     label="salary",
     training=True
-    )
+)
 
 X_test, y_test, _, _ = process_data(
     test,
@@ -65,14 +62,13 @@ save_model(encoder, encoder_path)
 # load the model
 model = load_model(
     model_path
-) 
+)
 
 preds = inference(model, X_test)
 
 # Calculate and print the metrics
 p, r, fb = compute_model_metrics(y_test, preds)
 print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}")
-
 
 # iterate through the categorical features
 for col in cat_features:
